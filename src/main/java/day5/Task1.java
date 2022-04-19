@@ -12,7 +12,6 @@ public class Task1 {
         System.out.println(car1.GetYear());
     }
     }
-
  class Car {
 
             private String Model;

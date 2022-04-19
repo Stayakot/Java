@@ -22,7 +22,6 @@ class Motorbike {
         this.Color=Color;
         this.Year=Year;
 
-
     }
     public String GetModel() {
         return Model;
