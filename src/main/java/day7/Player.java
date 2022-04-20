@@ -9,7 +9,6 @@ public class Player {
         }
     }
 
-
     int stamina = 10;
     final int MAX_STAMINA = 100;
     final int MIN_STAMINA = 0;

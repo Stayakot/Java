@@ -67,6 +67,7 @@ public class Airplane {
         }
     }
 
+
     public int getFuel() {
         return Fuel;
     }
