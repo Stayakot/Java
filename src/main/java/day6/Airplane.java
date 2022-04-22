@@ -1,74 +1,50 @@
 package day6;
 
 public class Airplane {
-    String Manufacturer;
-    int Year;
-    int Length;
-    int Weight;
-    int Fuel = 0;
+    String manufacturer;
+    private int year;
+    private int length;
+    private int weight;
+    private int fuel = 0;
 
-    public Airplane(String Manufacturer, int Year, int Length, int Weight) {
-        this.Manufacturer = Manufacturer;
-        this.Year = Year;
-        this.Length = Length;
-        this.Weight = Weight;
+    public Airplane(String manufacturer, int year, int length, int weight) {
+        this.manufacturer = manufacturer;
+        this.year = year;
+        this.length = length;
+        this.weight = weight;
     }
 
     public void info() {
-        System.out.println("Изготовитель: " + Manufacturer +", "+ "год выпуска: " + Year+", "+"длина: " + Length +", "+ "вес: " + Weight +", "+ "количество топлива в баке: " + Fuel);
+        System.out.println("Изготовитель: " + manufacturer +", "+ "год выпуска: " + year +", "+"длина: " + length +", "+ "вес: " + weight +", "+ "количество топлива в баке: " + fuel);
 
     }
 
-    public int fillUp(int n) {
-        this.Fuel = n + Fuel;
-        return Fuel;
-
+    public void fillUp(int n) {
+        this.fuel = n + fuel;
     }
 
-    public void SetManufacturer(String AirplaneManufacturer) {
-        if (AirplaneManufacturer.isEmpty()) {
-            System.out.println("Kakoy-kakoy Manufacturer?");
-        } else {
-            Manufacturer = AirplaneManufacturer;
-        }
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
     }
 
-
-    public void setYear(int AirplaneYear) {
-        if (AirplaneYear <= 0) {
-            System.out.println("Skolko-skolko??");
-        } else {
-            Year = AirplaneYear;
-        }
+    public void setYear(int year) {
+        this.year = year;
     }
 
-
-    public void setLength(int AirplaneLength) {
-        if (AirplaneLength <= 0) {
-            System.out.println("Skolko-skolko Dlina??");
-        } else {
-            Year = AirplaneLength;
-        }
+    public void setLength(int length) {
+        this.length = length;
     }
 
-    public void setWeight(int AirplaneWeight) {
-        if (AirplaneWeight <= 0) {
-            System.out.println("Skolko-skolko Vesit??");
-        } else {
-            Year = AirplaneWeight;
-        }
+    public void setFuel(int fuel) {
+        this.fuel = fuel;
     }
 
-    public void setFuel(int AirplaneFuel) {
-        if (AirplaneFuel <= 0) {
-            System.out.println("Nemnogo Malovato");
-        } else {
-            Year = AirplaneFuel;
-        }
+    public void setWeight(int weight) {
+        this.weight = weight;
     }
 
     public int getFuel() {
-        return Fuel;
+        return fuel;
     }
 
 

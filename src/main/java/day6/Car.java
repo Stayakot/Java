@@ -1,6 +1,5 @@
 package day6;
 
-
 public class Car {
 
     private String Model;
