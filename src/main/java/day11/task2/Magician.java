@@ -25,4 +25,3 @@ public class Magician extends Hero implements PhysAttack, MagicAttack {
                 '}';
     }
 }
-

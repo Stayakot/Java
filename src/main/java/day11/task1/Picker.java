@@ -44,4 +44,3 @@ public class Picker implements Worker {
 
     }
 }
-

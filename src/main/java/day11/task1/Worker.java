@@ -5,4 +5,3 @@ public interface Worker {
 
     public void bonus();
 }
-

@@ -34,4 +34,3 @@ public class Paladin extends Hero implements PhysAttack, Healer {
                 '}';
     }
 }
-
