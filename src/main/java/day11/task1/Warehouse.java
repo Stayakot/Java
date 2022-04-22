@@ -2,6 +2,7 @@ package day11.task1;
 
 public class Warehouse {
 
+
     public int countPickedOrders;
     public int countDeliveredOrders;
 

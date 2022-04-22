@@ -9,7 +9,6 @@ public abstract class Hero implements PhysAttack {
     double minLife = 0;
     double maxLife = 100;
 
-
     public void physicalAttack(Hero hero) {
         double udar = physAtt - (physAtt * hero.physDef);
         if (hero.health - udar <= 0) {

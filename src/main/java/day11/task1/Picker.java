@@ -8,7 +8,6 @@ public class Picker implements Worker {
 
     public Picker(Warehouse object) {
         this.object = object;
-
     }
 
     public int getSalary() {

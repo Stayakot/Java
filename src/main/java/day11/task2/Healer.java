@@ -7,7 +7,3 @@ public interface Healer {
     public void healTeammate(Hero hero);
 
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/main

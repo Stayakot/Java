@@ -2,6 +2,7 @@ package day11.task2;
 
 public class Paladin extends Hero implements PhysAttack, Healer {
 
+
     public Paladin() {
         health = 100;
         physDef = 0.5;

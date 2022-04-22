@@ -2,7 +2,6 @@ package day11.task1;
 
 public class Courier implements Worker {
 
-
     public int salary;
     public boolean isPayed;
     public Warehouse object;

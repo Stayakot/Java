@@ -20,7 +20,6 @@ public class Task1 {
         Courier courier1 = new Courier(warehouse1);
 
 
-
         businessProcess(picker);
         businessProcess(courier);
         System.out.println(warehouse.getCountDeliveredOrders());
