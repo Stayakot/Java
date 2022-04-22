@@ -8,7 +8,6 @@ public class Magician extends Hero implements PhysAttack, MagicAttack {
         magicAtt = 20;
         magicDef = 0.8;
     }
-
     @Override
     public void magicalAttack(Hero hero) {
         double udar2 = magicAtt - (magicAtt * hero.magicDef);

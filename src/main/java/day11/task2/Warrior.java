@@ -16,7 +16,6 @@ public class Warrior extends Hero implements PhysAttack {
     double minLife = 0;
     double maxLife = 0;
 
-
     @Override
     public String toString() {
         return "Warrior{" +

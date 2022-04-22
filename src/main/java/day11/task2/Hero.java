@@ -15,5 +15,4 @@ public abstract class Hero implements PhysAttack {
             hero.health = minLife;
         } else hero.health -= udar;
     }
-
 }

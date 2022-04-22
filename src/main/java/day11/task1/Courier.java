@@ -10,7 +10,6 @@ public class Courier implements Worker {
         this.object = object;
     }
 
-
     public int getSalary() {
         return salary;
     }

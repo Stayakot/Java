@@ -31,9 +31,6 @@ public class Task1 {
         System.out.println(picker1.salary);
         System.out.println(courier1.salary);
 
-
-
-
     }
 
 }

@@ -9,7 +9,6 @@ public class Shaman extends Hero implements PhysAttack, Healer, MagicAttack {
         physAtt = 10;
         magicAtt = 15;
     }
-
     @Override
     public void healHimself() {
         if (health + 50 > maxLife) {

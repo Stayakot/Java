@@ -10,7 +10,6 @@ public class Paladin extends Hero implements PhysAttack, Healer {
         physAtt = 15;
         magicAtt = 0;
     }
-
     @Override
     public void healHimself() {
         if (health + 25 > maxLife) {

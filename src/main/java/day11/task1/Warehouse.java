@@ -24,6 +24,5 @@ public class Warehouse {
 
     public String toString() {
         return "countDeliveredOrders:" + countDeliveredOrders + " countPickedOrders:" + countPickedOrders;
-
     }
 }
