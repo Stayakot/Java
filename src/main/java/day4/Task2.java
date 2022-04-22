@@ -1,46 +1,43 @@
 package day4;
+
 import java.util.Random;
+
 public class Task2 {
     public static void main(String[] args) {
         Random random = new Random();
         int[] array = new int[100];
 
-        int n = 0;
-        int sum = 0;
-        int max = 0;
-        int min=10000;
-
         for (int i = 0; i < array.length; i++) {
             array[i] = random.nextInt(10000);
         }
 
-        for (int b = 0; b < array.length; b++) {
-            if (array[b] % 10 == 0) {
-                n++;
+        int kolNol = 0;
+        int sum = 0;
+        for (int b : array) {
+            if (b % 10 == 0) {
+                kolNol++;
+                sum = sum + b;
             }
         }
-        System.out.println(n);
+        System.out.println("количество элементов массива, оканчивающихся на 0: " + kolNol);
+        System.out.println("сумму элементов массива, оканчивающихся на 0: " + sum);
 
-        for (int a = 0; a < array.length - 1; a++) {
-            if (array[a] % 10 == 0)
-                sum = sum + a;
+
+        int max = Integer.MIN_VALUE;
+        for (int i : array) {
+            if (i > max) {
+                max = i;
+            }
         }
-        System.out.println(sum);
+        System.out.println("наибольший элемент массива: " + max);
 
-
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] > max) {
-                max = array[i];
-            }}
-            System.out.println("maximum " + max);
-
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] <= min) {
-                min = array[i];
-            }}
-        System.out.println("minimum " + min);
-
-
+        int min = Integer.MAX_VALUE;
+        for (int i : array) {
+            if (i <= min) {
+                min = i;
+            }
+        }
+        System.out.println("наименьший элемент массива: " + min);
 
     }
 }

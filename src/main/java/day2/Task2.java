@@ -8,8 +8,9 @@ public class Task2 {
         int a = c.nextInt();
         int b = c.nextInt();
 
-        if (a > b){
-            System.out.println("Некорректный ввод");}
+        if (a > b) {
+            System.out.println("Некорректный ввод");
+        }
 
         for (a = a + 1; a < b; a++) {
             if (a % 5 == 0 && a % 10 != 0) {
