@@ -16,6 +16,7 @@ public class Task2 {
             if (a % 5 == 0 && a % 10 != 0) {
                 System.out.print(a + " ");
 
+
             }
         }
     }

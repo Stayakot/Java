@@ -11,6 +11,7 @@ public class Task2 {
             array[i] = random.nextInt(10000);
         }
 
+
         int kolNol = 0;
         int sum = 0;
         for (int b : array) {
