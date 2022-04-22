@@ -15,7 +15,7 @@ public class Rectangle extends Figure {
         return Ploshad;
     }
 
-    ;
+
 
     public double perimeter() {
         double Perimetr = 2 * (length + breath);
