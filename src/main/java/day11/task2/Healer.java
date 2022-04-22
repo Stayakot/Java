@@ -7,3 +7,4 @@ public interface Healer {
     public void healTeammate(Hero hero);
 
 }
+

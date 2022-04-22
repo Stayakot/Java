@@ -23,3 +23,4 @@ public class Warrior extends Hero implements PhysAttack {
                 '}';
     }
 }
+

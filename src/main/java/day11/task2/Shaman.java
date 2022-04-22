@@ -43,3 +43,4 @@ public class Shaman extends Hero implements PhysAttack, Healer, MagicAttack {
                 '}';
     }
 }
+
