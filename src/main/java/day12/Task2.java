@@ -3,21 +3,24 @@ package day12;
 import java.util.ArrayList;
 
 public class Task2 {
-    public static void main(String[] args) {
-        ArrayList<Integer> arrayList = new ArrayList<>();
 
-        for (int i =0;i<=30; i++) {
+    public void numbers(int one, int two, ArrayList<Integer> arrayList) {
+        for (int i = one; i <= two; i++) {
             if (i % 2 == 0) {
                 arrayList.add(i);
             }
-        }
-        for (int i =300;i<=350; i++) {
-            if (i % 2 == 0) {
-                arrayList.add(i);
-            }
-        }
-            System.out.println(arrayList);
         }
 
     }
+
+    public static void main(String[] args) {
+        Task2 number = new Task2();
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        number.numbers(0, 30, arrayList);
+        number.numbers(300, 350, arrayList);
+
+        System.out.println(arrayList);
+    }
+
+}
 
