@@ -33,7 +33,7 @@ public class Task2 {
                 String[] numbersString = line.split(" ");
 
                 if (Integer.parseInt(numbersString[1]) < 0) {
-                    throw new IllegalArgumentException();
+                    throw new IllegalArgumentException("Некорректный входной файл");
                 }
                 command.add(line);
             }
@@ -41,7 +41,7 @@ public class Task2 {
         } catch (FileNotFoundException e) {
             System.out.println("Файл не найден");
         } catch (IllegalArgumentException e) {
-            System.out.println("Некорректный входной файл");
+            System.out.println(e.getMessage());
         }
 
         return null;

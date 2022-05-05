@@ -1,7 +1,8 @@
 package day14;
 
 public class Person {
-    String name;
+    private String name;
+    private int year;
 
     @Override
     public String toString() {
@@ -24,5 +25,5 @@ public class Person {
         return year;
     }
 
-    int year;
+
 }

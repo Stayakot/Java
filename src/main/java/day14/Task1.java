@@ -8,13 +8,7 @@ import java.util.Scanner;
 public class Task1 {
     public static void main(String[] args) {
 
-        File files = new File("test2");
-
-        try {
-            Scanner scanner = new Scanner(files);
-        } catch (FileNotFoundException e) {
-            System.out.println("Файл не найден");
-        }
+        File files = new File("test");
 
         printSumDigits(files);
 
@@ -32,19 +26,13 @@ public class Task1 {
             String line = scanner.nextLine();
 
             String[] numbersString = line.split(" ");
-            int[] numbers = new int[10];
-            int counter = 0;
-
-
-            for (String number : numbersString) {
-                numbers[counter++] = Integer.parseInt(number);
+            if (numbersString.length!=10){
+                throw new IllegalArgumentException("некорректный ввод");
             }
+
             int sum = 0;
-            for (int i : numbers) {
-                if (counter != 10) {
-                    System.out.println("Некорректный входной файл");
-                    break;
-                } else sum += i;
+            for (String number : numbersString) {
+                sum += Integer.parseInt(number);
             }
             System.out.println(sum);
         } catch (FileNotFoundException e) {
