@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class User {
-    String username;
-    List<User> subscriptions;
+    private String username;
+    private List<User> subscriptions;
 
     public User(String username) {
         this.username = username;
-        subscriptions = new ArrayList<User>();
+        subscriptions = new ArrayList<>();
 
     }
 
