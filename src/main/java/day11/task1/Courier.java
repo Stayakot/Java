@@ -2,9 +2,11 @@ package day11.task1;
 
 public class Courier implements Worker {
 
-    public int salary;
-    public boolean isPayed;
-    public Warehouse object;
+    private int salary;
+    private final int bonus=50000;
+    private boolean isPayed;
+    private Warehouse object;
+
 
     public Courier(Warehouse object) {
         this.object = object;
@@ -35,9 +37,9 @@ public class Courier implements Worker {
 
         if (isPayed) {
             System.out.println("Бонус уже был выплачен");
-        }
+        return;}
 
-        salary += 50000;
+        salary += bonus;
         isPayed = true;
     }
 }

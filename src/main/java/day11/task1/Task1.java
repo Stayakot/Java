@@ -26,10 +26,10 @@ public class Task1 {
         System.out.println(warehouse.getCountPickedOrders());
         System.out.println(warehouse1.getCountPickedOrders());
         System.out.println(warehouse1.getCountDeliveredOrders());
-        System.out.println(picker.salary);
-        System.out.println(courier.salary);
-        System.out.println(picker1.salary);
-        System.out.println(courier1.salary);
+        System.out.println(picker.getSalary());
+        System.out.println(courier.getSalary());
+        System.out.println(picker1.getSalary());
+        System.out.println(courier1.getSalary());
 
     }
 

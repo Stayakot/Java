@@ -2,9 +2,10 @@ package day11.task1;
 
 public class Picker implements Worker {
 
-    int salary;
-    boolean isPayed;
-    public Warehouse object;
+    private int salary;
+    private final int bonus = 70000;
+    private boolean isPayed;
+    private Warehouse object;
 
     public Picker(Warehouse object) {
         this.object = object;
@@ -35,9 +36,10 @@ public class Picker implements Worker {
 
         if (isPayed) {
             System.out.println("Бонус уже был выплачен");
+            return;
         }
 
-        salary += 70000;
+        salary += bonus;
         isPayed = true;
 
 
