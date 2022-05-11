@@ -42,52 +42,62 @@ public class BattleField {
         String userInput = scanner.nextLine();
         while (!arrangeShip(userInput, 4))
             userInput = scanner.nextLine();
+        printField();
 
 
         System.out.println("Введи координаты первого трехпалубного корабля (формат: x,y;x,y;x,y;)");
         userInput = scanner.nextLine();
         while (!arrangeShip(userInput, 3))
             userInput = scanner.nextLine();
+        printField();
 
         System.out.println("Введи координаты второго трехпалубного корабля (формат: x,y;x,y;x,y;)");
         userInput = scanner.nextLine();
         while (!arrangeShip(userInput, 3))
             userInput = scanner.nextLine();
+        printField();
 
         System.out.println("Введи координаты первого двухпалубного корабля (формат: x,y;x,y;)");
         userInput = scanner.nextLine();
         while (!arrangeShip(userInput, 2))
             userInput = scanner.nextLine();
+        printField();
 
         System.out.println("Введи координаты второго двухпалубного корабля (формат: x,y;x,y;)");
         userInput = scanner.nextLine();
         while (!arrangeShip(userInput, 2))
             userInput = scanner.nextLine();
+        printField();
 
         System.out.println("Введи координаты третьего двухпалубного корабля (формат: x,y;x,y;)");
         userInput = scanner.nextLine();
         while (!arrangeShip(userInput, 2))
             userInput = scanner.nextLine();
+        printField();
 
         System.out.println("Введи координаты первого однопалубного корабля (формат: x,y;)");
         userInput = scanner.nextLine();
         while (!arrangeShip(userInput, 1))
             userInput = scanner.nextLine();
+        printField();
 
         System.out.println("Введи координаты второго однопалубного корабля (формат: x,y;)");
         userInput = scanner.nextLine();
         while (!arrangeShip(userInput, 1))
             userInput = scanner.nextLine();
+        printField();
 
         System.out.println("Введи координаты третьего однопалубного корабля (формат: x,y;)");
         userInput = scanner.nextLine();
         while (!arrangeShip(userInput, 1))
             userInput = scanner.nextLine();
+        printField();
 
         System.out.println("Введи координаты четвертого однопалубного корабля (формат: x,y;)");
         userInput = scanner.nextLine();
         while (!arrangeShip(userInput, 1))
             userInput = scanner.nextLine();
+        printField();
 
 
         playerFieldArranged = true;
@@ -107,7 +117,7 @@ public class BattleField {
                 else if (playerField[i][j] == 0)
                     System.out.print("\uD83D\uDFE6");
                 else if (playerField[i][j] == -2)
-                    System.out.print("\uD83D\uDFE5");
+                    System.out.print("\uD83D\uDFE6");
                 else
                     System.out.print("\u2B1B");
             }
