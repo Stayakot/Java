@@ -1,17 +1,18 @@
 package Final_Project;
 
-import Final_Project.BattleField.*;
-
 import java.util.Scanner;
 
 import static Final_Project.CheckCoordinates.*;
+import static Final_Project.BattleField.*;
 
 
 public class BattleShip {
     // поле первого игрока
-    private BattleField player1Field;
+    private BattleField playerOwn1Field;
+    private BattleField playerEnemy1Field;
     // поле второго игрока
-    private BattleField player2Field;
+    private BattleField playerOwn2Field;
+    private BattleField playerEnemy2Field;
 
     // true, пока игра идет. false, когда игра заканчивается
     private boolean gameIsOn;
@@ -27,14 +28,15 @@ public class BattleShip {
     // единственный конструктор
     // внутри проверяется, что оба поля заполнены
     // также, инициализируются значения всех полей
-    public BattleShip(BattleField player1Field, BattleField player2Field) {
-        if (!player1Field.isPlayerFieldArranged() || !player2Field.isPlayerFieldArranged()) {
+    public BattleShip(BattleField playerOwn1Field, BattleField playerOwn2Field) {
+        if (!playerOwn1Field.isPlayerFieldArranged() || !playerOwn2Field.isPlayerFieldArranged()) {
             System.out.println("Создание игры остановлено. Корабли на обоих полях должны быть расставлены.");
             throw new IllegalArgumentException();
         }
 
-        this.player1Field = player1Field;
-        this.player2Field = player2Field;
+        this.playerOwn1Field = playerOwn1Field;
+        this.playerOwn2Field = playerOwn2Field;
+
 
         this.player1ShipCount = 10;
         this.player2ShipCount = 10;
@@ -50,10 +52,18 @@ public class BattleShip {
         Scanner scanner = new Scanner(System.in);
 
         while (gameIsOn) {
-            if (isPlayer1)
-                System.out.println(player1Field.getPlayerName() + ", ваш ход!");
-            else
-                System.out.println(player2Field.getPlayerName() + ", ваш ход!");
+            if (isPlayer1) {
+                System.out.println(playerOwn1Field.getPlayerName() + ", ваш ход!");
+
+                System.out.println("Поле врага");
+                playerOwn1Field.printEnemyField();
+            } else {
+                System.out.println(playerOwn2Field.getPlayerName() + ", ваш ход!");
+
+                System.out.println("Поле врага");
+                playerOwn2Field.printEnemyField();
+            }
+
 
             String userInput = scanner.nextLine();
 
@@ -72,33 +82,39 @@ public class BattleShip {
 
         int[] coordinate = parseCoordinate(userInput);
 
-        if (isPlayer1)
-            hit(player2Field.getPlayerField(), coordinate);
-        else
-            hit(player1Field.getPlayerField(), coordinate);
+        if (isPlayer1) {
+            hit(playerOwn2Field.getPlayerOwnField(), playerOwn1Field.getPlayerEnemyField(), coordinate);
+        } else {
+            hit(playerOwn1Field.getPlayerOwnField(), playerOwn2Field.getPlayerEnemyField(), coordinate);
+
+
+        }
 
 
         if (player1ShipCount == 0) {
-            System.out.println(player2Field.getPlayerName() + " победил! Игра заканчивается");
+            System.out.println(playerOwn2Field.getPlayerName() + " победил! Игра заканчивается");
             gameIsOn = false;
         }
 
         if (player2ShipCount == 0) {
-            System.out.println(player1Field.getPlayerName() + " победил! Игра заканчивается");
+            System.out.println(playerOwn1Field.getPlayerName() + " победил! Игра заканчивается");
             gameIsOn = false;
         }
 
         return true;
     }
 
+
+
     // Производит удар по ячейке
     // Выводит сообщение либо "Мимо!", либо "Попадание", либо "Утопил".
     // В случае потопления декременитирует количество кораблей на плаву
     // Переводит право на ход другому игроку, если удар был "Мимо!"
-    private void hit(int[][] playerField, int[] hitCoordinate) {
+    private void hit(int[][] playerField, int[][] playerEnemyField, int[] hitCoordinate) {
 
         if (playerField[hitCoordinate[0]][hitCoordinate[1]] == 1) {
             playerField[hitCoordinate[0]][hitCoordinate[1]] = -2;
+            playerEnemyField[hitCoordinate[0]][hitCoordinate[1]] = -2;
 
             if (shipSank(playerField, hitCoordinate)) {
                 System.out.println("Утопил!");
@@ -111,10 +127,14 @@ public class BattleShip {
                 System.out.println("Попадание!");
             }
 
-        } else {
+        } else if
+        (playerField[hitCoordinate[0]][hitCoordinate[1]] == 0 || playerField[hitCoordinate[0]][hitCoordinate[1]] == -1) {
+            playerEnemyField[hitCoordinate[0]][hitCoordinate[1]] = 0;
             System.out.println("Мимо!");
             isPlayer1 = !isPlayer1; // переход хода
         }
+
+
     }
 
     // true - если удар утопил корабль

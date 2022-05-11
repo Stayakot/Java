@@ -2,6 +2,7 @@ package Final_Project;
 
 public class CheckCoordinates {
 
+
     // Парсит одну координату (x,y)
     public static int[] parseCoordinate(String inputCoordinate) {
         String[] shipPartCoordinate = inputCoordinate.split(",");

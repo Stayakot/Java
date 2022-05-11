@@ -11,18 +11,26 @@ import static Final_Project.CheckCoordinates.*;
 public class BattleField {
 
     private String playerName;
-    private int[][] playerField;
+    private int[][] playerOwnField;
+    private int[][] playerEnemyField;
     private boolean playerFieldArranged;
 
     public BattleField(String playerName) {
         this.playerName = playerName;
-        this.playerField = new int[10][10];
-        for (int[] row : this.playerField)
+        this.playerOwnField = new int[10][10];
+        for (int[] row : this.playerOwnField)
             Arrays.fill(row, -1);
+        this.playerEnemyField = new int[10][10];
+        for (int[] row : this.playerEnemyField)
+        Arrays.fill(row, -1);
     }
 
-    public int[][] getPlayerField() {
-        return playerField;
+    public int[][] getPlayerEnemyField() {
+        return playerEnemyField;
+    }
+
+    public int[][] getPlayerOwnField() {
+        return playerOwnField;
     }
 
     public String getPlayerName() {
@@ -42,62 +50,64 @@ public class BattleField {
         String userInput = scanner.nextLine();
         while (!arrangeShip(userInput, 4))
             userInput = scanner.nextLine();
-        printField();
+        System.out.println("Твое поле");
+        printOwnField();
+
 
 
         System.out.println("Введи координаты первого трехпалубного корабля (формат: x,y;x,y;x,y;)");
         userInput = scanner.nextLine();
         while (!arrangeShip(userInput, 3))
             userInput = scanner.nextLine();
-        printField();
+        printOwnField();
 
         System.out.println("Введи координаты второго трехпалубного корабля (формат: x,y;x,y;x,y;)");
         userInput = scanner.nextLine();
         while (!arrangeShip(userInput, 3))
             userInput = scanner.nextLine();
-        printField();
+        printOwnField();
 
         System.out.println("Введи координаты первого двухпалубного корабля (формат: x,y;x,y;)");
         userInput = scanner.nextLine();
         while (!arrangeShip(userInput, 2))
             userInput = scanner.nextLine();
-        printField();
+        printOwnField();
 
         System.out.println("Введи координаты второго двухпалубного корабля (формат: x,y;x,y;)");
         userInput = scanner.nextLine();
         while (!arrangeShip(userInput, 2))
             userInput = scanner.nextLine();
-        printField();
+        printOwnField();
 
         System.out.println("Введи координаты третьего двухпалубного корабля (формат: x,y;x,y;)");
         userInput = scanner.nextLine();
         while (!arrangeShip(userInput, 2))
             userInput = scanner.nextLine();
-        printField();
+        printOwnField();
 
         System.out.println("Введи координаты первого однопалубного корабля (формат: x,y;)");
         userInput = scanner.nextLine();
         while (!arrangeShip(userInput, 1))
             userInput = scanner.nextLine();
-        printField();
+        printOwnField();
 
         System.out.println("Введи координаты второго однопалубного корабля (формат: x,y;)");
         userInput = scanner.nextLine();
         while (!arrangeShip(userInput, 1))
             userInput = scanner.nextLine();
-        printField();
+        printOwnField();
 
         System.out.println("Введи координаты третьего однопалубного корабля (формат: x,y;)");
         userInput = scanner.nextLine();
         while (!arrangeShip(userInput, 1))
             userInput = scanner.nextLine();
-        printField();
+        printOwnField();
 
         System.out.println("Введи координаты четвертого однопалубного корабля (формат: x,y;)");
-        userInput = scanner.nextLine();
+          userInput = scanner.nextLine();
         while (!arrangeShip(userInput, 1))
             userInput = scanner.nextLine();
-        printField();
+        printOwnField();
 
 
         playerFieldArranged = true;
@@ -109,23 +119,37 @@ public class BattleField {
     }
 
     // Выводит поле на экран
-    public void printField() {
+    public void printOwnField() {
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
-                if (playerField[i][j] == 1)
-                    System.out.print("\uD83D\uDEE5");
-                else if (playerField[i][j] == 0)
+                if (playerOwnField[i][j] == 1)
+                    System.out.print("⛵ ");
+                else if (playerOwnField[i][j] == 0)
                     System.out.print("\uD83D\uDFE6");
-                else if (playerField[i][j] == -2)
-                    System.out.print("\uD83D\uDFE6");
+                else if (playerOwnField[i][j] == -2)
+                    System.out.print("\uD83D\uDFE5");
                 else
-                    System.out.print("\u2B1B");
+                    System.out.print("\uD83D\uDFE9");
             }
-
             System.out.println();
+
         }
     }
 
+    public void printEnemyField() {
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                if (playerEnemyField[i][j] == 0)
+                    System.out.print("\uD83D\uDFE6");
+                else if (playerEnemyField[i][j] == -2)
+                    System.out.print("\uD83D\uDFE5");
+                else
+                    System.out.print("\uD83D\uDFE9");
+            }
+            System.out.println();
+
+        }
+    }
 
     // Пытается поставить на поле новый корабль, принимая на вход ввод из консоли
     public boolean arrangeShip(String userInput, int shipType) {
@@ -156,24 +180,24 @@ public class BattleField {
     private void arrangeShips(int[][] shipCoordinates, int shipSize) {
         // arrange ship
         for (int[] shipCoordinate : shipCoordinates)
-            playerField[shipCoordinate[0]][shipCoordinate[1]] = 1;
+            playerOwnField[shipCoordinate[0]][shipCoordinate[1]] = 1;
 
         // arrange aureole
         List<Integer[]> shipAureole = getShipAureole(shipCoordinates, shipSize);
 
         for (Integer[] shipAureoleCoordinate : shipAureole)
-            playerField[shipAureoleCoordinate[0]][shipAureoleCoordinate[1]] = 0;
+            playerOwnField[shipAureoleCoordinate[0]][shipAureoleCoordinate[1]] = 0;
     }
 
     private boolean checkEmptySpaceForShip(int[][] shipCoordinates, int shipType) {
         for (int[] shipCoordinate : shipCoordinates) {
-            if (playerField[shipCoordinate[0]][shipCoordinate[1]] == 1)
+            if (playerOwnField[shipCoordinate[0]][shipCoordinate[1]] == 1)
                 return false;
         }
         List<Integer[]> shipAureole = getShipAureole(shipCoordinates, shipType);
 
         for (Integer[] shipAureoleCoordinate : shipAureole) {
-            if (playerField[shipAureoleCoordinate[0]][shipAureoleCoordinate[1]] == 1)
+            if (playerOwnField[shipAureoleCoordinate[0]][shipAureoleCoordinate[1]] == 1)
                 return false;
         }
 
